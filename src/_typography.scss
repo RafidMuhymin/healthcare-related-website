@@ -1,0 +1,69 @@
+@use "poly-fluid-sizing" as pfz;
+
+:root {
+  @include pfz.poly-fluid-sizing(
+    "font-size",
+    (
+      320px: 12px,
+      768px: 13.75px,
+      1024px: 16px,
+      1200px: 17.5px,
+    )
+  );
+}
+
+small {
+  * {
+    font-size: inherit !important;
+  }
+}
+
+a {
+  @apply text-blue-600 no-underline hover:underline text-[1.1rem];
+}
+
+p {
+  @apply text-[1.1rem] leading-[1.1rem] font-normal;
+}
+
+h6 {
+  @apply text-[1.15rem] leading-[1.15rem] font-normal;
+}
+h5 {
+  @apply text-[1.25rem] leading-[1.25rem] font-medium;
+}
+h4 {
+  @apply text-[1.4rem] leading-[1.4rem] font-semibold;
+}
+h3 {
+  @apply text-[1.6rem] leading-[1.6rem] font-bold;
+}
+h2 {
+  @apply text-[1.8rem] leading-[1.8rem] font-extrabold;
+}
+h1 {
+  @apply text-[2.1rem] leading-[2.1rem] font-black;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  @apply my-5 mx-0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+small {
+  a {
+    font-size: inherit;
+  }
+}

@@ -1,0 +1,9 @@
+@use "typography";
+
+button {
+  @apply text-white bg-blue-600 p-2 rounded-md;
+}
+
+input {
+  @apply border-b-2 border-blue-600 focus:border-blue-500;
+}
