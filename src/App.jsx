@@ -23,11 +23,11 @@ const firebaseConfig = {
   appId: "1:887962618446:web:ef3c6e75a065538072111f",
 };
 
-const app = initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
 
 function App() {
   const [user, setUser] = useState(false);
-  const auth = getAuth(app);
+  const auth = getAuth();
 
   function PrivateRoute({ element }) {
     if (user.uid) {
@@ -38,7 +38,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Header user={user} setUser={setUser} />
+      <Header auth={auth} user={user} setUser={setUser} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />

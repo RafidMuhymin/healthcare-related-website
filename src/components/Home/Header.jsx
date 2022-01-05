@@ -1,7 +1,8 @@
+import { signOut } from "firebase/auth";
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-export default function Footer({ user, setUser }) {
+export default function Footer({ auth, user, setUser }) {
   return (
     <div>
       <nav>
@@ -12,7 +13,15 @@ export default function Footer({ user, setUser }) {
             <NavLink to="/services">Services</NavLink>
             <button
               className="text-blue-600 no-underline hover:underline text-[1.1rem] bg-transparent"
-              onClick={() => setUser(false)}
+              onClick={() => {
+                signOut(auth)
+                  .then(() => {
+                    setUser({});
+                  })
+                  .catch(({ error }) => {
+                    throw new Error(error.message);
+                  });
+              }}
             >
               Logout
             </button>
